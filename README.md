@@ -73,6 +73,6 @@ kubectl rollout history deployment.apps goserver
 
 ### Rollout Undo Change
 ```sh
-kubectl rollout undo deployment.apps goserver
+kubectl rollout undo deployment.apps goserver --to_revision=REVISON_NUMBER
 ```
 
