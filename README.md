@@ -36,34 +36,44 @@ kubectl apply -f k8s/FILE_NAME.yaml
 kubectl get pods
 ```
 
+### Get ReplicaSets
+```sh
+kubectl get replicasets.apps
+```
+
+### Get Deployments
+```sh
+kubectl get deployments.apps
+```
+
 ### Get Deployment status
 ```sh
-kubectl get deployment.apps goserver
+kubectl get deployments.apps goserver
 ```
 
 ### Describe Deployment
 ```sh
-kubectl describe deployment.apps goserver
+kubectl describe deployments.apps goserver
 ```
 
 ### Get Statefulset Status
 ```sh
-kubectl get statefulset.apps goserver
+kubectl get statefulsets.apps goserver
 ```
 
 ### Describe StatefulSet
 ```sh
-kubectl describe statefulset.apps goserver
+kubectl describe statefulsets.apps goserver
 ```
 
 ### Describe Deployment
 ```sh
-kubectl describe deployment.apps goserver
+kubectl describe deployments.apps goserver
 ```
 
 ### Get Resource Revision
 ```sh
-kkubectl describe deployment.apps goserver
+kkubectl describe deployments.apps goserver
 ```
 
 ### Get Rollout History
