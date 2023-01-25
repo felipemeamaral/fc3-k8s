@@ -86,3 +86,7 @@ kubectl rollout history deployments/goserver
 kubectl rollout undo deployments/goserver --to_revision=REVISON_NUMBER
 ```
 
+### Port forward to one of your Pods
+```sh
+kubectl port-forward pods/goserver 8080:8080
+```
