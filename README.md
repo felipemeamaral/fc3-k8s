@@ -18,6 +18,61 @@ kubectl config get-clusters
 
 Change to your desired cluster:
 ```sh
-kubectl config set-context CLUSTER_NAME
+kubectl config set-context fullcycle
+```
+
+### Get Nodes Running
+```sh
+kubectl get nodes
+```
+
+### Apply changes to your cluster using a spec file
+```sh
+kubectl apply -f k8s/FILE_NAME.yaml
+```
+
+### Get Pods running
+```sh
+kubectl get pods
+```
+
+### Get Deployment status
+```sh
+kubectl get deployment.apps goserver
+```
+
+### Describe Deployment
+```sh
+kubectl describe deployment.apps goserver
+```
+
+### Get Statefulset Status
+```sh
+kubectl get statefulset.apps goserver
+```
+
+### Describe StatefulSet
+```sh
+kubectl describe statefulset.apps goserver
+```
+
+### Describe Deployment
+```sh
+kubectl describe deployment.apps goserver
+```
+
+### Get Resource Revision
+```sh
+kubectl describe deployment.apps goserver
+```
+
+### Get Rollout History
+```sh
+kubectl rollout history deployment.apps goserver
+```
+
+### Rollout Undo Change
+```sh
+kubectl rollout undo deployment.apps goserver
 ```
 
