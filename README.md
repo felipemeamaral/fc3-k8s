@@ -63,16 +63,16 @@ kubectl describe deployment.apps goserver
 
 ### Get Resource Revision
 ```sh
-kubectl describe deployment.apps goserver
+kkubectl describe deployment.apps goserver
 ```
 
 ### Get Rollout History
 ```sh
-kubectl rollout history deployment.apps goserver
+kubectl rollout history deployments/goserver
 ```
 
 ### Rollout Undo Change
 ```sh
-kubectl rollout undo deployment.apps goserver --to_revision=REVISON_NUMBER
+kubectl rollout undo deployments/goserver --to_revision=REVISON_NUMBER
 ```
 
