@@ -1,12 +1,13 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: ReplicaSet
 metadata:
   name: goserver
+  labels:
+    app: goserver
 spec:
   selector:
     matchLabels:
       app: goserver
-  serviceName: goserver
   replicas: 10
   template:
     metadata:
@@ -15,5 +16,4 @@ spec:
     spec:
       containers:
       - name: goserver
-        image: felipemeamaral/goserver:v1
-
+        image: felipemeamaral/goserver:latest

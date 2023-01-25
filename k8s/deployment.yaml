@@ -2,11 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: goserver
+  labels:
+    app: goserver
 spec:
   selector:
     matchLabels:
       app: goserver
-  serviceName: goserver
   replicas: 10
   template:
     metadata:
