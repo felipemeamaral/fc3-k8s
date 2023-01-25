@@ -6,6 +6,7 @@ spec:
   selector:
     matchLabels:
       app: goserver
+  serviceName: goserver
   replicas: 10
   template:
     metadata:
