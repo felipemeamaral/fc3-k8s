@@ -16,8 +16,10 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: felipemeamaral/goserver:v4
+          image: felipemeamaral/goserver:v5
           envFrom:
+            - secretRef:
+                name: goserver-secret
             - configMapRef:
                 name: goserver-env
           volumeMounts:
