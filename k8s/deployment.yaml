@@ -16,16 +16,17 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: felipemeamaral/goserver:v2
-          env:
-            - name: NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: goserver-env
-                  key: NAME
-
-            - name: AGE
-              valueFrom:
-                configMapKeyRef:
-                  name: goserver-env
-                  key: AGE
+          image: felipemeamaral/goserver:v4
+          envFrom:
+            - configMapRef:
+                name: goserver-env
+          volumeMounts:
+            - mountPath: "/app/myfamily/"
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: goserver-family
+            items:
+            - key: members
+              path: "family.txt"
