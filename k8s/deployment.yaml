@@ -18,7 +18,14 @@ spec:
         - name: goserver
           image: felipemeamaral/goserver:v2
           env:
-            - name: AGE
-              value: "33"
             - name: NAME
-              value: "Felipe"
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: NAME
+
+            - name: AGE
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: AGE
