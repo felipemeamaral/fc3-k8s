@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: felipemeamaral/goserver:v5
+          image: felipemeamaral/goserver:v5.1
           envFrom:
             - secretRef:
                 name: goserver-secret

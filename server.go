@@ -6,9 +6,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
+var startedAt = time.Now()
+
 func main() {
+	http.HandleFunc("/healthz", Healthz)
 	http.HandleFunc("/configmap", ConfigMap)
 	http.HandleFunc("/secret", Secret)
 	http.HandleFunc("/", Hello)
@@ -36,7 +40,18 @@ func ConfigMap(w http.ResponseWriter, r *http.Request) {
 func Secret(w http.ResponseWriter, r *http.Request) {
 	user := os.Getenv("USER")
 	password := os.Getenv("PASSWORD")
-	message := fmt.Sprintf("User: %s. Password: %s", user, password)
 
-	w.Write([]byte(message))
+	w.Write([]byte(fmt.Sprintf("User: %s. Password: %s", user, password)))
+}
+
+func Healthz(w http.ResponseWriter, r *http.Request) {
+	duration := time.Since(startedAt)
+
+	if duration.Seconds() > 25 {
+		w.WriteHeader(500)
+		w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
+	} else {
+		w.WriteHeader(200)
+		w.Write([]byte("Ok"))
+	}
 }
