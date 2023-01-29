@@ -18,6 +18,14 @@ spec:
         - name: goserver
           image: felipemeamaral/goserver:v5.3
 
+          resources:
+            requests:
+              cpu: 100m
+              memory: 20Mi
+            limits:
+              cpu: 500m
+              memory: 40Mi
+
           startupProbe:
             httpGet:
               path: /healthz
