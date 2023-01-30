@@ -90,3 +90,8 @@ kubectl rollout undo deployments/goserver --to_revision=REVISON_NUMBER
 ```sh
 kubectl port-forward pods/goserver 8080:8080
 ```
+
+### Run stress test using fortio on your application
+```sh
+kubectl run -it fortio --rm --image=fortio/fortio -- load -qps 800 -t 120s -c 70 "http://goserver-service:8000/healthz"
+```
