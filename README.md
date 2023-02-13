@@ -116,3 +116,8 @@ kubectl config set-context dev --namespace=dev --cluster=kind-fullcycle --user=k
 ```sh
 kubectl config current-context
 ```
+
+### List API Resources
+```sh
+kubectl api-resources
+```
