@@ -6,7 +6,7 @@ metadata:
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: server-read
 rules:
@@ -20,14 +20,14 @@ rules:
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: server-read-binding
 subjects:
   - kind: ServiceAccount
     name: server
-    namespace: prod
+    namespace: prod,dev
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: server-read
   apiGroup: rbac.authorization.k8s.io
