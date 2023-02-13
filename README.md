@@ -95,3 +95,24 @@ kubectl port-forward pods/goserver 8080:8080
 ```sh
 kubectl run -it fortio --rm --image=fortio/fortio -- load -qps 800 -t 120s -c 70 "http://goserver-service:8000/healthz"
 ```
+
+### Create namespace
+```sh
+kubectl create namespace dev
+```
+
+### List kubernetes cluster information
+
+```sh
+kubectl config view
+```
+
+### Create new context on cluster
+```sh
+kubectl config set-context dev --namespace=dev --cluster=kind-fullcycle --user=kind-fullcycle
+```
+
+### Show current context
+```sh
+kubectl config current-context
+```
